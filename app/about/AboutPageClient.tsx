@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Users, Target, Lightbulb, Award, Linkedin, Twitter, Mail } from "lucide-react"
+import { Target, Lightbulb, Linkedin, Twitter, Mail } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
@@ -38,6 +38,15 @@ const teamMembers = [
     email: "touhidul@connected.com",
   },
   {
+    name: "Md. Minhaz Imran",
+    role: "Executive Director & COO",
+    bio: "Operations specialist focused on scaling systems and optimizing business processes for maximum efficiency.",
+    image: "/production-director-portrait.png",
+    linkedin: "#",
+    twitter: "#",
+    email: "minhaz@connected.com",
+  },
+  {
     name: "Rasel Ahmed Shifat",
     role: "Executive Director & Production Head",
     bio: "Production specialist with expertise in managing complex projects and delivering exceptional results.",
@@ -47,7 +56,7 @@ const teamMembers = [
     email: "rasel@connected.com",
   },
   {
-    name: "Shafin Hayder",
+    name: "Shafin Haider",
     role: "Creative Director – Social & Visual Media",
     bio: "Creative professional focused on building compelling brand narratives and driving visual excellence.",
     image: "/professional-woman-designer.png",
@@ -57,32 +66,10 @@ const teamMembers = [
   },
 ]
 
-const values = [
-  {
-    icon: Lightbulb,
-    title: "Innovation First",
-    description: "We believe in pushing boundaries and exploring new possibilities in every project we undertake.",
-  },
-  {
-    icon: Users,
-    title: "Collaborative Spirit",
-    description: "Success comes from working together, sharing knowledge, and building strong partnerships.",
-  },
-  {
-    icon: Target,
-    title: "Results Driven",
-    description: "We focus on measurable outcomes and sustainable growth for all our ventures.",
-  },
-  {
-    icon: Award,
-    title: "Excellence Standard",
-    description: "We maintain the highest standards in everything we do, from code quality to customer service.",
-  },
-]
-
 export default function AboutPageClient() {
   return (
     <>
+      {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Hero section background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-accent/40 to-secondary/30 -top-[120px] -mt-[120px] pt-[120px]">
@@ -113,45 +100,298 @@ export default function AboutPageClient() {
         <Header />
         <div className="pt-32 pb-8 relative z-10">
           <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 max-w-7xl">
-            <div className="text-center mb-12 mx-auto max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-12 mx-auto max-w-4xl"
+            >
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pot-black mb-6 font-syne">
                 About Connected
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Connected is a future-driven company that builds, scales, and invests in next-generation ventures. From
-                tech and media to lifestyle and digital services, we create what the world will need next. We move fast,
-                think big, and operate with one mission: to lead innovation across industries. If it shapes the future,
-                it starts here.
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
+                <span className="text-pot-black font-semibold">Connected isn't just a name — it's a philosophy.</span>
               </p>
-            </div>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
+                We are a modern venture ecosystem that builds, launches, and scales high-impact businesses across
+                digital, tech, media, consumer goods, and beyond.
+              </p>
+              <p className="text-lg sm:text-xl text-pot-black font-medium max-w-3xl mx-auto leading-relaxed">
+                We don't follow the market. We build what the market follows.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Mission Section */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-8 font-syne">Our Mission</h2>
+      {/* Who We Are Section */}
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        {/* Subtle background elements */}
+        <div className="absolute inset-0">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-primary/20 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.2, 0.5, 0.2],
+              }}
+              transition={{
+                duration: 4 + Math.random() * 2,
+                repeat: Number.POSITIVE_INFINITY,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-8 font-syne">Who We Are</h2>
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
-              To create and nurture innovative companies that solve real-world problems and make a positive impact on
-              society. We believe in the power of entrepreneurship to drive meaningful change.
+              Connected is a multi-vertical venture company that operates at the intersection of{" "}
+              <span className="text-pot-black font-semibold">innovation, creativity, and execution.</span> We design
+              ventures from the ground up — powering ideas with infrastructure, capital, and world-class teams.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 max-w-5xl mx-auto">
-              {values.map((value, index) => (
-                <Card
-                  key={index}
-                  className="text-center border-none shadow-sm hover:shadow-md transition-shadow mx-auto w-full max-w-sm lg:max-w-none"
-                >
+            <motion.p
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-lg font-bold text-pot-black mb-8"
+            >
+              We don't just launch brands. We build machines that scale.
+            </motion.p>
+            <p className="text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              From stealth-mode tools to high-visibility consumer brands, everything we create is tied together by one
+              vision:{" "}
+              <span className="text-pot-black font-semibold">
+                To shape how the next generation lives, works, and grows.
+              </span>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission & Vision Section */}
+      <section className="py-16 sm:py-20 bg-lynx-white relative">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(101,41,178,0.03)_1px,transparent_1px),linear-gradient(-45deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <Card className="text-center lg:text-left border border-gray-200 bg-white hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4 mx-auto lg:mx-0">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pot-black mb-4 font-syne">Our Mission</h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    To empower bold ideas and ambitious founders by providing the systems, strategy, and scale needed to{" "}
+                    <span className="text-pot-black font-semibold">dominate their industries.</span>
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <Card className="text-center lg:text-left border border-gray-200 bg-white hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4 mx-auto lg:mx-0">
+                    <Lightbulb className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pot-black mb-4 font-syne">Our Vision</h3>
+                  <p className="text-base text-gray-600 leading-relaxed">
+                    To become the most influential venture ecosystem in Asia —{" "}
+                    <span className="text-pot-black font-semibold">
+                      exporting culture, products, and technology to the world.
+                    </span>
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do Section */}
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10 flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-8 font-syne">What We Do</h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              "Build and operate ventures in-house from concept to execution",
+              "Provide growth infrastructure — media, marketing, tech, and brand strategy",
+              "Incubate smart ideas with internal capital and core leadership support",
+              "Create unfair advantages through proprietary tools, networks, and insights",
+              "Scale with speed, backed by remote talent and lean operation systems",
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <Card className="text-center border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 bg-white">
                   <CardContent className="p-6">
-                    <value.icon className="h-10 w-10 sm:h-12 sm:w-12 text-primary mx-auto mb-4" />
-                    <h3 className="font-bold text-lg mb-2">{value.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{value.description}</p>
+                    <div className="w-3 h-3 bg-primary rounded-full mx-auto mb-4"></div>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">{item}</p>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Our Ecosystem Section */}
+      <section className="py-16 sm:py-20 bg-lynx-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">Our Ecosystem</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              <span className="text-pot-black font-semibold">We don't reveal everything we build.</span> But here's a
+              glimpse of the industries we touch:
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Digital Advertising & Media",
+                description: "Performance marketing, creative assets, content automation, and monetization systems.",
+              },
+              {
+                title: "Tech & SaaS Infrastructure",
+                description:
+                  "Tools that power online businesses: browser systems, automation, security, and backend tech.",
+              },
+              {
+                title: "Consumer Products & DTC",
+                description:
+                  "Aesthetic, functional products built with deep insight, viral storytelling, and modern branding.",
+              },
+              {
+                title: "Lifestyle, Wellness & Fitness",
+                description:
+                  "Ventures that improve how people look, feel, and perform — from daily routines to peak habits.",
+              },
+              {
+                title: "Food & Urban Experience",
+                description: "Fast, modern, and scalable food brands with focus on convenience, culture, and branding.",
+              },
+            ].map((ecosystem, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <Card className="text-center border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 bg-white">
+                  <CardContent className="p-6">
+                    <div className="w-4 h-4 bg-primary rounded-full mx-auto mb-4"></div>
+                    <h3 className="font-bold text-lg mb-3 text-pot-black">{ecosystem.title}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{ecosystem.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 max-w-2xl mx-auto"
+          >
+            <p className="text-base text-gray-600 leading-relaxed">
+              <span className="text-pot-black font-semibold">Each venture is unique. Each one stands on its own.</span>
+              <br />
+              But behind all of them is one root system: <span className="text-pot-black font-bold">Connected.</span>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* What Makes Us Different Section */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">What Makes Us Different</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              <span className="text-pot-black font-semibold">We don't just talk ideas — we execute them.</span>
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              "Built completely remote with global talent",
+              "Cross-functional leadership across tech, design, operations, and marketing",
+              "Projects span from stealth-mode to viral consumer brands",
+              "Unapologetically ambitious, brutally efficient, and culture-driven",
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-4"
+              >
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-base text-gray-600 leading-relaxed">{item}</p>
+              </motion.div>
+            ))}
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 max-w-2xl mx-auto"
+          >
+            <p className="text-lg font-medium text-pot-black">
+              No middlemen. No wasted time. No vanity metrics.
+              <br />
+              <span className="font-bold">Just results, impact, and ownership.</span>
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -159,104 +399,176 @@ export default function AboutPageClient() {
       <section className="py-16 sm:py-20 bg-lynx-white">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
           <div className="text-center mb-12 mx-auto max-w-4xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">Meet Our Team</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Passionate innovators and experienced professionals working together to build the future.
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">Leadership</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
+              Our leadership blends strategy, execution, and creative firepower.
+            </p>
+            <p className="text-base font-medium text-pot-black">
+              <span className="font-bold">We don't run companies. We launch weapons.</span>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="text-center border-none shadow-sm hover:shadow-md transition-shadow mx-auto w-full max-w-sm lg:max-w-none"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
               >
-                <CardContent className="p-6">
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4">
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      fill
-                      className="object-cover rounded-full"
-                    />
-                  </div>
-                  <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{member.bio}</p>
-                  <div className="flex justify-center space-x-3">
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={member.twitter} target="_blank" rel="noopener noreferrer">
-                        <Twitter className="h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={`mailto:${member.email}`}>
-                        <Mail className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                <Card className="text-center border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 mx-auto w-full max-w-sm lg:max-w-none bg-white">
+                  <CardContent className="p-6">
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4">
+                      <Image
+                        src={member.image || "/placeholder.svg"}
+                        alt={member.name}
+                        fill
+                        className="object-cover rounded-full"
+                      />
+                    </div>
+                    <h3 className="font-bold text-lg mb-1 text-pot-black">{member.name}</h3>
+                    <p className="text-primary font-medium mb-3">{member.role}</p>
+                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">{member.bio}</p>
+                    <div className="flex justify-center space-x-3">
+                      <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                          <Linkedin className="h-4 w-4 text-gray-600" />
+                        </a>
+                      </Button>
+                      <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
+                        <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                          <Twitter className="h-4 w-4 text-gray-600" />
+                        </a>
+                      </Button>
+                      <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
+                        <a href={`mailto:${member.email}`}>
+                          <Mail className="h-4 w-4 text-gray-600" />
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
-          <div className="text-center mb-12 mx-auto max-w-4xl">
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 mx-auto max-w-4xl"
+          >
             <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">Our Impact</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Numbers that reflect our commitment to building successful ventures.
+              Numbers that reflect our commitment to{" "}
+              <span className="text-pot-black font-semibold">building successful ventures.</span>
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {[
               {
-                number: "$10M+",
-                label: "Revenue Generated",
-                description: "Across current products and services",
-              },
-              {
-                number: "100+",
-                label: "Jobs Created",
-                description: "Through direct teams, partners, and collaborators",
-              },
-              {
-                number: "4M+",
-                label: "Audience Reached",
-                description: "Through digital platforms, content, and media",
-              },
-              {
-                number: "16",
+                number: "16+",
                 label: "Countries Touched",
                 description: "With global users, clients, and partners",
               },
               {
-                number: "5/12",
+                number: "12+",
                 label: "Ventures Built",
-                description: "5 already built and active, 12 in the pipeline",
+                description: "Built or in progress across multiple industries",
+              },
+              {
+                number: "50+",
+                label: "Team Members",
+                description: "Full-time and remote talent globally",
               },
               {
                 number: "$100M+",
-                label: "Projected Market Cap",
-                description: "Across upcoming ventures",
+                label: "Total Market Cap",
+                description: "Of upcoming projects and ventures",
+              },
+              {
+                number: "1000s",
+                label: "Clients Served",
+                description: "Users and partners served globally",
+              },
+              {
+                number: "5",
+                label: "Core Industries",
+                description: "Digital, Tech, Consumer, Lifestyle, Food",
               },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">{stat.number}</div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                className="text-center group"
+              >
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors duration-300">
+                  {stat.number}
+                </div>
                 <div className="text-sm sm:text-base font-medium text-pot-black mb-1">{stat.label}</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">{stat.description}</div>
-              </div>
+                <div className="text-xs sm:text-sm text-gray-600">{stat.description}</div>
+              </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Culture Section */}
+      <section className="py-16 sm:py-20 bg-lynx-white">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">Our Culture</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              <span className="text-pot-black font-semibold">Connected is not a 9-to-5 company. It's a mindset.</span>
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+            {[
+              "We move fast, but with precision.",
+              "We prioritize ownership, not permission.",
+              "We respect creativity, but execute with systems.",
+              "We work hard, and then work harder.",
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-4"
+              >
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-base text-gray-600 leading-relaxed">{item}</p>
+              </motion.div>
+            ))}
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <p className="text-lg text-gray-600 mb-4">
+              We're building a home for the smartest minds, wildest thinkers, and most relentless builders.
+            </p>
+            <p className="text-lg font-medium text-pot-black">
+              <span className="font-bold">If you can't stand the average — you'll love it here.</span>
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -466,18 +778,17 @@ export default function AboutPageClient() {
               ))}
 
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 font-syne text-gray-900 relative z-10">
-                Ready to Build Something Amazing?
+                What's Coming Next
               </h2>
               <p className="text-lg sm:text-xl mb-8 text-gray-700 max-w-2xl mx-auto relative z-10">
-                Join us in creating the next generation of innovative companies that will shape the future.
+                We're just getting started. More ventures. More firepower. More disruption. More ways to win.
+              </p>
+              <p className="text-lg font-medium text-pot-black mb-8 relative z-10">
+                <span className="font-bold">We don't ask for permission. We just build.</span>
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg"
-                    asChild
-                  >
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-lg" asChild>
                     <Link href="/contact">Get in Touch</Link>
                   </Button>
                 </motion.div>
@@ -485,7 +796,7 @@ export default function AboutPageClient() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-2 border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent shadow-lg"
+                    className="border-2 border-primary text-primary hover:bg-primary hover:text-white shadow-lg"
                     asChild
                   >
                     <Link href="/ventures">View Our Ventures</Link>
