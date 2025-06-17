@@ -19,7 +19,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 p-2 sm:p-4 md:p-6 print:hidden">
+    <header className="sticky top-0 left-0 right-0 z-50 p-2 sm:p-4 md:p-6 print:hidden bg-transparent">
       <div
         className={cn(
           "relative w-full max-w-[1172px] h-[70px] sm:h-[80px] md:h-[86px] mx-auto",
