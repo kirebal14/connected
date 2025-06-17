@@ -1,0 +1,20 @@
+{
+  "name": "connected-website-cms",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sanity CMS for Connected Website",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
+  },
+  "dependencies": {
+    "@sanity/code-input": "^4.1.0",
+    "@sanity/vision": "^3.0.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "sanity": "^3.0.0"
+  }
+}
