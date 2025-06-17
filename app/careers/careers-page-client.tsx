@@ -113,8 +113,8 @@ export default function CareersPageClient() {
         </div>
 
         <Header />
-        <div className="min-h-screen pt-32 relative z-10">
-          <div className="container mx-auto px-4 sm:px-6 md:px-8 py-12 max-w-7xl">
+        <div className="pt-32 pb-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 max-w-7xl">
             <div className="text-center mb-12 mx-auto max-w-4xl">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pot-black mb-6 font-syne">
                 Join Our Team
