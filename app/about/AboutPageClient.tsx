@@ -395,6 +395,159 @@ export default function AboutPageClient() {
         </div>
       </section>
 
+      {/* Office Gallery Section */}
+      <section className="py-16 sm:py-20 bg-lynx-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-pot-black mb-4 font-syne">Our Workspace</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              <span className="text-pot-black font-semibold">Where innovation meets execution.</span> Our modern office
+              space is designed to foster creativity, collaboration, and peak performance.
+            </p>
+          </motion.div>
+
+          {/* Featured Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl group">
+              <Image
+                src="/office/office-main-workspace.jpg"
+                alt="Connected main workspace with city views"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-lg font-semibold">Main Workspace</p>
+                <p className="text-sm text-gray-200">Open collaboration space with panoramic city views</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                src: "/office/office-team-workspace.jpg",
+                alt: "Team collaboration area",
+                title: "Collaboration Hub",
+                description: "Dynamic workspace for team projects",
+              },
+              {
+                src: "/office/office-conference-room.jpg",
+                alt: "Modern conference room",
+                title: "Meeting Room",
+                description: "Professional spaces for strategic discussions",
+              },
+              {
+                src: "/office/office-private-room.jpg",
+                alt: "Private office space",
+                title: "Focus Zones",
+                description: "Quiet areas for deep work and concentration",
+              },
+              {
+                src: "/office/office-atmospheric.jpg",
+                alt: "Atmospheric office view",
+                title: "Inspiring Environment",
+                description: "Thoughtfully designed spaces that inspire creativity",
+              },
+              {
+                src: "/office/office-professional.jpg",
+                alt: "Professional workspace",
+                title: "Executive Areas",
+                description: "Premium spaces for leadership and strategy",
+              },
+              {
+                src: "/office/office-modern-view.jpg",
+                alt: "Modern office view",
+                title: "City Views",
+                description: "Floor-to-ceiling windows with stunning vistas",
+              },
+            ].map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="group cursor-pointer"
+              >
+                <div className="relative h-[280px] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <Image
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <h3 className="font-bold text-lg mb-1">{image.title}</h3>
+                    <p className="text-sm text-gray-200">{image.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Office Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          >
+            {[
+              {
+                title: "Modern Design",
+                description: "Clean, contemporary spaces that reflect our innovative approach",
+              },
+              {
+                title: "Natural Light",
+                description: "Floor-to-ceiling windows providing abundant natural illumination",
+              },
+              {
+                title: "Flexible Spaces",
+                description: "Adaptable environments for collaboration, focus, and creativity",
+              },
+            ].map((feature, index) => (
+              <div key={index} className="text-center">
+                <div className="w-3 h-3 bg-primary rounded-full mx-auto mb-4"></div>
+                <h3 className="font-bold text-lg mb-2 text-pot-black">{feature.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 max-w-2xl mx-auto"
+          >
+            <p className="text-base text-gray-600 leading-relaxed">
+              Our workspace isn't just an office — it's a{" "}
+              <span className="text-pot-black font-semibold">launchpad for innovation.</span> Every detail is designed
+              to empower our team to build the future.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="py-16 sm:py-20 bg-lynx-white">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
